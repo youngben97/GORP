@@ -1,11 +1,21 @@
 import * as React from 'react';
-import { CssVarsProvider } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import MixCard from './components/MixCard';
 
-export default function App() {
+
+// import 'index'
+
+
+export default function AppContainer() {
   return (
-    <CssVarsProvider>
-      <Sheet variant="outlined">GORP</Sheet>
-    </CssVarsProvider>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} />
+        {/* <MixCard/> */}
+      </Container>
+    </React.Fragment>
   );
 }
