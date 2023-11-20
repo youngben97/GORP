@@ -1,4 +1,4 @@
-import { Button, FormControl, TextField } from "@mui/material";
+import { Button, FormControl, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
 export default function SignUp () {
@@ -8,30 +8,31 @@ export default function SignUp () {
         const {name, value} = event.target;
         setUserFormData({...userFormData, [name]: value})
     }
+        // add logic for handling form submission once addUser functionality is written
+    // const handleFormSubmit =
 
-    const handleFormSubmit =
-    //add logic for handling form submission once addUser functionality is written
-    
     return (
-        <Container component="main" maxWidth="xs">
-            <form>
-                <FormControl fullWidth>
+        <React.Fragment component="main" maxWidth="xs">
+            <Typography>
+                Ready to GORP out? Sign up to start making your concoctions today!
+            </Typography>
+                <Form fullWidth>
                     <TextField
                         label="email"
                         type="email"
                         placeholder="Your email"
                         name="email"
                     />
-                </FormControl>
-                <FormControl fullWidth>
+                </Form>
+                <Form fullWidth>
                     <TextField
                         label="username"
                         type="text"
                         placeholder='Your username'
                         name='username' 
                     />
-                </FormControl>
-                <FormControl fullWidth>
+                </Form>
+                <Form fullWidth>
                     <TextField
                         label="password"
                         type="password"
@@ -39,14 +40,13 @@ export default function SignUp () {
                         name="password"
                         required
                     />
-                </FormControl>
+                </Form>
                 <Button
                     disabled={!(userFormData.username && userFormData.email && userFormData.password)}
                     type="submit"
                     variant="success">
                         Submit
                 </Button>
-            </form>
-        </Container>
+        </React.Fragment>
     )
 }   
