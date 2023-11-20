@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+// import { styled } from '@mui/material/styles';
+// import Box from '@mui/material/Box';
+import MixCard from '../components/MixCard';
+import { Container, Grid } from '@mui/material';
 
 // {/* <Grid container spacing={2}>
 //   <Grid item xs={8}>
@@ -21,6 +21,13 @@ import Grid from '@mui/material/Grid';
 
 export default function BrowseMix() {
     return (
-        <div>Browse mix</div>
+        <Container>
+            <Grid container spacing={5}>
+                <MixCard />
+                <MixCard />
+                <MixCard />
+                <MixCard />
+            </Grid>
+        </Container>
     )
 }
