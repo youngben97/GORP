@@ -27,6 +27,8 @@ export default function BrowseMix() {
                 <MixCard />
                 <MixCard />
                 <MixCard />
+                <MixCard />
+                <MixCard />
             </Grid>
         </Container>
     )
