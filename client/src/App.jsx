@@ -1,21 +1,26 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-// import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-// import MixCard from './components/MixCard';
+import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import { Outlet } from 'react-router-dom';
 import './App.css'
+import Header from './components/Header';
 
-// import 'index'
+const theme = createTheme({
+  palette: {
+    background: { primary: '#E8EEF2'}
+  }
+})
 
 
 export default function AppContainer() {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="lg">
-      <Outlet />
-      </Container>
-    </React.Fragment>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <CssBaseline />
+            <Header/>
+            <Container sx={{ marginTop: 2, marginBottom: 2 }}>
+              <Outlet />
+            </Container>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
