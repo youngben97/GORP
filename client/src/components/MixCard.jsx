@@ -1,29 +1,12 @@
 import * as React from 'react';
-import { Box, Grid, ThemeProvider, Typography, createTheme, Stack, Button } from '@mui/material';
-
-const theme = createTheme({
-    palette: {
-        background: {
-            secondary: '#D6C9C9',
-            tertiary: '#C7D3DD',
-            quaternary: '#6C91BF',
-            dark: '#37393A',
-        },
-        text: {
-            light: '#D9D0DE',
-            dark: '#37393A',
-            link: '#77B6EA',
-        }
-    }
-})
+import { Box, Grid, Typography, Stack, Button } from '@mui/material';
 
 export default function MixCard() {
     return (
-        <ThemeProvider theme={theme}>
           <Grid item xs={6}>
             <Box
             sx={{
-                bgcolor: 'background.secondary',
+                bgcolor: 'background.paper',
                 boxShadow: 1,
                 borderRadius: 2,
                 minWidth: 300,
@@ -33,14 +16,14 @@ export default function MixCard() {
             >
                 {/* replace text with a link */}
               <Stack direction='row' sx={{
-                    bgcolor: 'background.dark',
-                    color: 'text.link',
+                    bgcolor: 'primary.main',
+                    color: 'text.secondary',
                     width: 1,
                     borderRadius: '8px 8px 0 0',
                     justifyContent: 'space-between'
                     }}>
                     <Typography variant='button' sx={{ m: 1, fontSize: 'h6.fontSize'}}> Mix Name</Typography>
-                    <Typography sx={{ m:1, color: 'text.light'}}>Username</Typography>
+                    <Typography sx={{ m:1, color: 'text.secondary'}}>Username</Typography>
               </Stack>
               <Stack direction='row' sx={{justifyContent: 'space-between'}}>
                 <Stack sx={{ justifyContent: 'space-between'}}>
@@ -55,13 +38,12 @@ export default function MixCard() {
                 </Stack>
                 <Stack direction='row' alignItems='center' sx={{color: 'text.light', justifyContent:'end'}}>
                   <Button variant="contained" sx={{ m: 1, p:1 }}>GORP</Button>
-                  <Typography sx={{bgcolor: 'background.quaternary', m: 1, borderRadius:2}}>##</Typography>
+                  <Typography sx={{ m: 1, borderRadius:2}}>##</Typography>
                 {/* replace gorp with a button */}
                 </Stack>
               </Stack>
             </Box>
           </Grid>
-        </ThemeProvider>
     )
 }
 
