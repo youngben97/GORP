@@ -4,3 +4,15 @@
     box-sizing: border-box;
     font-family: "Roboto";
 }
+
+:root {
+    --primary: #E8EEF2;
+    --secondary: #D6C9C9;
+    --tertiary: #C7D3DD;
+    --quaternary: #77B6EA;
+    --light: #D9D0DE;
+    --dark: #37393A;
+    --error: #f00;
+    --border-color: #2f3b1c;
+    --border-radius: 0.3rem;
+  }
