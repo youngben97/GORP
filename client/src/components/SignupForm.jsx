@@ -1,95 +1,163 @@
-import React, {useState} from 'react';
-import { TextField, Button, createTheme, Stack } from '@mui/material';
-import { Link } from "react-router-dom"
+import * as React from 'react';
+import {
+    Avatar,
+    Button,
+    TextField,
+    Grid,
+    Box,
+    Typography,
+    Container
+} from '@mui/material';
 
-const theme = createTheme({
-    palette: {
-        background: {
-            secondary: '#D6C9C9',
-            tertiary: '#C7D3DD',
-            quaternary: '#6C91BF',
-            dark: '#37393A',
-        },
-        text: {
-            light: '#D9D0DE',
-            dark: '#37393A',
-            link: '#77B6EA',
-        }
-    }
-});
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const SignUpForm = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
- 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log(firstName, lastName, email, password) 
-    }
- 
-    return (
-        <React.Fragment>
-            <h2>Say pard', are you ready to git on yer GORP adventure? Sign up to GORP OUT!</h2>
-            <form onSubmit={handleSubmit} action={<Link to="/login" />}>
-                <Stack spacing={2} direction="row" sx={{marginBottom: 4}}>
-                    <TextField
-                        type="text"
-                        variant='outlined'
-                        color='secondary'
-                        label="First Name"
-                        onChange={e => setFirstName(e.target.value)}
-                        value={firstName}
-                        fullWidth
+export default function SignUp() {
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+    };
+
+return (
+    <Container component='main' maxWidth='xs'>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+            <Avatar sx={{ m:1, bgcolor: 'secondary.main' }}>
+                <AccountCircleIcon />
+            </Avatar>
+            <Typography component='h1' variant='h5'>
+                Sign up
+            </Typography>
+            <Box component = 'form' noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <TextField
+                            autoComplete="username"
+                            name="username"
+                            required
+                            fullWidth
+                            id="username"
+                            label="Username"
+                            autoFocus
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
                         required
-                        sx={{ 
-                            display: 'flex', 
-                            justifyContent: 'center' 
-                        }}
-                    />
-                    <TextField
-                        type="text"
-                        variant='outlined'
-                        color='secondary'
-                        label="Last Name"
-                        onChange={e => setLastName(e.target.value)}
-                        value={lastName}
                         fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
                         required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="new-password"
                     />
-                </Stack>
-                <TextField
-                    type="email"
-                    variant='outlined'
-                    color='secondary'
-                    label="Email"
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    </Grid>
+                </Grid>
+                <Button
+                    type="submit"
                     fullWidth
-                    required
-                    sx={{mb: 4}}
-                />
-                <TextField
-                    type="password"
-                    variant='outlined'
-                    color='secondary'
-                    label="Password"
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
-                    required
-                    fullWidth
-                    sx={{mb: 4}}
-                />
-                <Button variant="outlined" color="secondary" type="submit">Register</Button>
-            </form>
-            <small>Already have an account? <Link to="/login">Login Here</Link></small>
-     
-        </React.Fragment>
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                >
+                    Sign Up
+                </Button>
+            </Box>
+        </Box>
+    </Container>
     )
 }
+
+// const SignUpForm = () => {
+//     const [firstName, setFirstName] = useState('')
+//     const [lastName, setLastName] = useState('')
+//     const [email, setEmail] = useState('')
+//     const [password, setPassword] = useState('')
  
-export default SignUpForm;
+//     function handleSubmit(event) {
+//         event.preventDefault();
+//         console.log(firstName, lastName, email, password) 
+//     }
+ 
+//     return (
+//         <React.Fragment>
+//             <h2>Say pard', are you ready to git on yer GORP adventure? Sign up to GORP OUT!</h2>
+//             <form onSubmit={handleSubmit} action={<Link to="/login" />}>
+//                 <Stack spacing={2} direction="row" sx={{marginBottom: 4}}>
+//                     <TextField
+//                         type="text"
+//                         variant='outlined'
+//                         color='secondary'
+//                         label="First Name"
+//                         onChange={e => setFirstName(e.target.value)}
+//                         value={firstName}
+//                         fullWidth
+//                         required
+//                         sx={{ 
+//                             display: 'flex', 
+//                             justifyContent: 'center' 
+//                         }}
+//                     />
+//                     <TextField
+//                         type="text"
+//                         variant='outlined'
+//                         color='secondary'
+//                         label="Last Name"
+//                         onChange={e => setLastName(e.target.value)}
+//                         value={lastName}
+//                         fullWidth
+//                         required
+//                     />
+//                 </Stack>
+//                 <TextField
+//                     type="email"
+//                     variant='outlined'
+//                     color='secondary'
+//                     label="Email"
+//                     onChange={e => setEmail(e.target.value)}
+//                     value={email}
+//                     fullWidth
+//                     required
+//                     sx={{mb: 4}}
+//                 />
+//                 <TextField
+//                     type="password"
+//                     variant='outlined'
+//                     color='secondary'
+//                     label="Password"
+//                     onChange={e => setPassword(e.target.value)}
+//                     value={password}
+//                     required
+//                     fullWidth
+//                     sx={{mb: 4}}
+//                 />
+//                 <Button variant="outlined" color="secondary" type="submit">Register</Button>
+//             </form>
+//             <small>Already have an account? <Link to="/login">Login Here</Link></small>
+     
+//         </React.Fragment>
+//     )
+// }
+ 
+// export default SignUpForm;
 
 // import { Button, TextField, Typography, createTheme } from "@mui/material";
 // import { red } from "@mui/material/colors";
