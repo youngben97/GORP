@@ -37,14 +37,13 @@ export default function MixCard() {
                     color: 'text.link',
                     width: 1,
                     borderRadius: '8px 8px 0 0',
-                    display: 'flex',
                     justifyContent: 'space-between'
                     }}>
                     <Typography variant='button' sx={{ m: 1, fontSize: 'h6.fontSize'}}> Mix Name</Typography>
                     <Typography sx={{ m:1, color: 'text.light'}}>Username</Typography>
               </Stack>
-              <Stack direction='row' sx={{display: 'flex', justifyContent: 'space-between'}}>
-                <Stack sx={{ display: 'flex', justifyContent: 'space-between'}}>
+              <Stack direction='row' sx={{justifyContent: 'space-between'}}>
+                <Stack sx={{ justifyContent: 'space-between'}}>
                   <Stack direction='row' alignItems='center' sx={{color: 'text.dark', borderRadius:2, p:1 }}>
                     <Typography variant='subtitle1'>Calories per serving:</Typography>
                     <Typography sx={{textAlign: 'center', mx: 1}}> ### </Typography>
@@ -54,7 +53,7 @@ export default function MixCard() {
                     <Typography sx={{textAlign: 'center', mx: 1}}> ##g </Typography>
                   </Stack>
                 </Stack>
-                <Stack direction='row' alignItems='center' sx={{color: 'text.light', display:'flex', justifyContent:'end'}}>
+                <Stack direction='row' alignItems='center' sx={{color: 'text.light', justifyContent:'end'}}>
                   <Button variant="contained" sx={{ m: 1, p:1 }}>GORP</Button>
                   <Typography sx={{bgcolor: 'background.quaternary', m: 1, borderRadius:2}}>##</Typography>
                 {/* replace gorp with a button */}
