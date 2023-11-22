@@ -22,7 +22,7 @@ const userSchema = new Schema({
   mixes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'mix',
+      ref: 'Mix',
     },
   ],
 });
