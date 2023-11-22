@@ -34,6 +34,8 @@ export default function BrowseMix() {
     )
 }
 
+//use code for iterating user mixes into grid items
+
 // import React from 'react';
 // import { Grid, Typography, Box } from '@mui/material';
 // import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
