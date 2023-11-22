@@ -1,25 +1,31 @@
 const { Schema, model } = require('mongoose');
-const Ingredient = require('./Ingredient');
 const Comment = require('./Comment');
+const dateFormat = require('../utils/dateFormat');
 
 const mixSchema = new Schema({
     mixName: {
         type: String,
-        required: 'Gotta name the mix!',
+        required: true,
         minLength: 1,
         maxLength: 50,
         trim: true,
     },
-    mixAuthor: {
+    mixCreator: {
         type: String,
         required: true,
         time: true,
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
-    ingredients: [Ingredient],
+    ingredients: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Ingredient',
+        },
+    ],
     comments: [Comment],
     },
     {
@@ -31,8 +37,8 @@ const mixSchema = new Schema({
 );
 
 
-// write virtuals that aggregate nutritional data
+// write virtuals that aggregate different macrotypes
 
-const Mix = model('mix', mixSchema);
+const Mix = model('Mix', mixSchema);
 
 module.exports = Mix;
