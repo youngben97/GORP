@@ -12,9 +12,7 @@ export default function Navbar() {
                 <Toolbar sx={{justifyContent: 'space-between'}}>
                         <Button href='/' color='inherit' sx={{ typography: 'h1'}}>GORP</Button>
                         <Stack direction='row'>
-                            <Button href='/browsemix' color='inherit' sx={{mx: 2}}>Browse mixes</Button>
-                            <Button href='/createmix' color='inherit' sx={{mx: 2}}>Mix it up!</Button>
-                            <Button href='/mymix' color='inherit' sx={{mx: 2}}>My mixes</Button>
+                            <Button href='/browsemix' color='inherit' sx={{mx: 2}}>Mix it Up!</Button>
                             <LogSignModal/>
                         </Stack>
                 </Toolbar>

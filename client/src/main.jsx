@@ -7,8 +7,7 @@ import './index.css';
 import App from './App.jsx'
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage.jsx';
-import MyMix from './pages/MyMix.jsx';
-import CreateMix from './pages/CreateMix.jsx';
+// import UserMix from './pages/UserMix.jsx';
 import BrowseMix from './pages/BrowseMix.jsx';
 
 //is this the right entry point? ask TA
@@ -27,14 +26,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      },
-      {
-        path: 'mymix',
-        element: <MyMix />
-      },
-      {
-        path: 'createmix',
-        element: <CreateMix />
       },
       {
         path: 'browsemix',
