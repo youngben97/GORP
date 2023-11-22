@@ -1,19 +1,34 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 ingredientSchema = new Schema(
     {
-        ingredientId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-        ingredientName: {
+        name: {
             type: String,
             required: true,
-            maxLength: 50
         },
+        calories: {
+            type: Number,
+            required: true,
+        },
+        protein: {
+            type: Number,
+            required: true,
+        },
+        fats: {
+            type: Number,
+            required: true,
+        },
+        carbs: {
+            type: Number,
+            required: true,
+        },
+        sodium: {
+            type: Number,
+            required: true
+        }
     }
-)
+);
 
-//add fields for nutritional values
+const Ingredient = model('Ingredient', ingredientSchema);
 
-module.exports = ingredientSchema;
+module.exports = Ingredient;
