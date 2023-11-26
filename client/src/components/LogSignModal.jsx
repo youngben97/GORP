@@ -75,8 +75,8 @@ function a11yProps(index) {
               <Box sx={style}>  
                 <AppBar position="static">
                   <Tabs value={value} onChange={handleChange} indicatorColor='secondary' textColor='inherit' variant='fullWidth' aria-label="login/signup tabs">
-                    <Tab label="Item One" {...a11yProps(0)} />
-                    <Tab label="Item Two" {...a11yProps(1)} />
+                    <Tab label="Log in" {...a11yProps(0)} />
+                    <Tab label="Sign up" {...a11yProps(1)} />
                   </Tabs>
                 </AppBar>
                 <CustomTabPanel value={value} index={0}>
