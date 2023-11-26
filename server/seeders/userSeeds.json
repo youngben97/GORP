@@ -1,0 +1,52 @@
+[
+    {
+      "username": "trailmixman",
+      "email": "trailmixman@gmail.com",
+      "password": "password01"
+    },
+    {
+      "username": "outdoorExplorer",
+      "email": "explorer@gmail.com",
+      "password": "hiking123"
+    },
+    {
+      "username": "campfireLover",
+      "email": "campfire@gmail.com",
+      "password": "firewood456"
+    },
+    {
+      "username": "naturePhotog",
+      "email": "photog@gmail.com",
+      "password": "camera789"
+    },
+    {
+      "username": "trailBlazer",
+      "email": "blazer@gmail.com",
+      "password": "adventure987"
+    },
+    {
+      "username": "wildlifeWatcher",
+      "email": "wildlife@gmail.com",
+      "password": "binoculars654"
+    },
+    {
+      "username": "mountainClimber",
+      "email": "climber@gmail.com",
+      "password": "summit321"
+    },
+    {
+      "username": "riverRafter",
+      "email": "rafter@gmail.com",
+      "password": "rapids000"
+    },
+    {
+      "username": "starryNightCamper",
+      "email": "starrynight@gmail.com",
+      "password": "tent456"
+    },
+    {
+      "username": "trailRunner",
+      "email": "runner@gmail.com",
+      "password": "sprint789"
+    }
+  ]  

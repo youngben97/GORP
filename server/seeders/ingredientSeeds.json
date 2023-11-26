@@ -1,0 +1,83 @@
+[
+    {
+      "name": "Dry-roasted peanuts",
+      "calories": 166,
+      "protein": 7,
+      "fats": 14,
+      "carbs": 6,
+      "sodium": 144
+    },
+    {
+      "name": "Almonds",
+      "calories": 160,
+      "protein": 6,
+      "fats": 14,
+      "carbs": 6,
+      "sodium": 0
+    },
+    {
+      "name": "Cashews",
+      "calories": 157,
+      "protein": 5,
+      "fats": 12,
+      "carbs": 9,
+      "sodium": 3
+    },
+    {
+      "name": "Walnuts",
+      "calories": 183,
+      "protein": 4,
+      "fats": 18,
+      "carbs": 4,
+      "sodium": 1
+    },
+    {
+      "name": "Dried cranberries",
+      "calories": 96,
+      "protein": 0,
+      "fats": 0,
+      "carbs": 26,
+      "sodium": 2
+    },
+    {
+      "name": "Dark chocolate chunks",
+      "calories": 142,
+      "protein": 2,
+      "fats": 10,
+      "carbs": 14,
+      "sodium": 1
+    },
+    {
+      "name": "Raisins",
+      "calories": 85,
+      "protein": 1,
+      "fats": 0,
+      "carbs": 22,
+      "sodium": 6
+    },
+    {
+      "name": "Sunflower seeds",
+      "calories": 165,
+      "protein": 6,
+      "fats": 14,
+      "carbs": 6,
+      "sodium": 2
+    },
+    {
+      "name": "Pumpkin seeds",
+      "calories": 151,
+      "protein": 7,
+      "fats": 13,
+      "carbs": 5,
+      "sodium": 2
+    },
+    {
+      "name": "Dried pineapple chunks",
+      "calories": 102,
+      "protein": 0,
+      "fats": 0,
+      "carbs": 27,
+      "sodium": 3
+    }
+  ]
+  

@@ -1,0 +1,112 @@
+[
+    {
+      "mixName": "Hiker's Delight",
+      "mixCreator": "outdoorExplorer",
+      "ingredients": [
+        "Dry-roasted peanuts",
+        "Almonds",
+        "Walnuts",
+        "Dried cranberries",
+        "Sunflower seeds"
+      ]
+    },
+    {
+      "mixName": "Campfire Crunch",
+      "mixCreator": "campfireLover",
+      "ingredients": [
+        "Cashews",
+        "Dried cranberries",
+        "Dark chocolate chunks",
+        "Raisins",
+        "Sunflower seeds"
+      ]
+    },
+    {
+      "mixName": "Nature's Bliss",
+      "mixCreator": "naturePhotog",
+      "ingredients": [
+        "Almonds",
+        "Walnuts",
+        "Dried cranberries",
+        "Dark chocolate chunks",
+        "Pumpkin seeds"
+      ]
+    },
+    {
+      "mixName": "Adventure Fusion",
+      "mixCreator": "trailBlazer",
+      "ingredients": [
+        "Cashews",
+        "Walnuts",
+        "Dried cranberries",
+        "Dark chocolate chunks",
+        "Sunflower seeds"
+      ]
+    },
+    {
+      "mixName": "Wildlife Wonder",
+      "mixCreator": "wildlifeWatcher",
+      "ingredients": [
+        "Dry-roasted peanuts",
+        "Cashews",
+        "Dark chocolate chunks",
+        "Raisins",
+        "Pumpkin seeds"
+      ]
+    },
+    {
+      "mixName": "Mountain Majesty",
+      "mixCreator": "mountainClimber",
+      "ingredients": [
+        "Dry-roasted peanuts",
+        "Almonds",
+        "Dark chocolate chunks",
+        "Sunflower seeds",
+        "Pumpkin seeds"
+      ]
+    },
+    {
+      "mixName": "Rapid Energy",
+      "mixCreator": "riverRafter",
+      "ingredients": [
+        "Cashews",
+        "Dried cranberries",
+        "Dark chocolate chunks",
+        "Raisins",
+        "Pumpkin seeds"
+      ]
+    },
+    {
+      "mixName": "Starry Summit Mix",
+      "mixCreator": "starryNightCamper",
+      "ingredients": [
+        "Almonds",
+        "Cashews",
+        "Walnuts",
+        "Dried pineapple chunks",
+        "Pumpkin seeds"
+      ]
+    },
+    {
+      "mixName": "Trail Runner's Fuel",
+      "mixCreator": "trailRunner",
+      "ingredients": [
+        "Dry-roasted peanuts",
+        "Cashews",
+        "Dark chocolate chunks",
+        "Raisins",
+        "Sunflower seeds"
+      ]
+    },
+    {
+      "mixName": "Riverbank Respite",
+      "mixCreator": "riverRafter",
+      "ingredients": [
+        "Almonds",
+        "Walnuts",
+        "Dried cranberries",
+        "Dark chocolate chunks",
+        "Pumpkin seeds"
+      ]
+    }
+  ]  
