@@ -4,6 +4,34 @@ import { Outlet } from 'react-router-dom';
 import './App.css'
 import Header from './components/Header';
 
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 
 const theme = createTheme({
   palette: {
@@ -36,6 +64,7 @@ const theme = createTheme({
 
 export default function AppContainer() {
   return (
+    <ApolloProvider client={client}>
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <CssBaseline />
@@ -45,5 +74,6 @@ export default function AppContainer() {
             </Container>
       </React.Fragment>
     </ThemeProvider>
+    </ApolloProvider>
   );
 }
