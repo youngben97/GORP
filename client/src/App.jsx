@@ -69,7 +69,7 @@ export default function AppContainer() {
       <React.Fragment>
         <CssBaseline />
             <Header/>
-            <Container sx={{ marginTop: 2, marginBottom: 2 }}>
+            <Container sx={{ marginTop: 20, marginBottom: 2 }}>
               <Outlet />
             </Container>
       </React.Fragment>
