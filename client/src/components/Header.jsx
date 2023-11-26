@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Box, Toolbar, Button, Stack, Modal} from '@mui/material';
+import { AppBar, Box, Toolbar, Button, Stack, Modal, Typography} from '@mui/material';
 import LogSignModal from './LogSignModal';
 
 import Auth from '../utils/auth';
@@ -12,10 +12,12 @@ export default function Navbar() {
     //need to add title element back in and style buttons
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='static'>
+            <AppBar position='fixed'>
                 <Toolbar sx={{justifyContent: 'space-between'}}>
+                    <Button href='/' color='inherit' sx={{ typography: 'h1'}}>GORP</Button>
                     {Auth.loggedIn() ? (
                         <>
+                        <Stack direction='row'>
                         <Button href='/' color='inherit' sx={{mx: 2}}>
                             {Auth.getProfile().data.username}'s mixes
                         </Button>
@@ -23,6 +25,7 @@ export default function Navbar() {
                         <Button color='inherit' onClick={logout}>
                             Logout
                         </Button>
+                        </Stack>
                         </>
                     ) : (
                         <LogSignModal />
