@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const Comment = require('./Comment');
+// const Comment = require('./Comment');
 const dateFormat = require('../utils/dateFormat');
 
 const mixSchema = new Schema({
@@ -26,7 +26,25 @@ const mixSchema = new Schema({
             ref: 'Ingredient',
         },
     ],
-    comments: [Comment],
+    comments: [
+        {
+          commentText: {
+            type: String,
+            required: true,
+            minlength: 1,
+            maxlength: 280,
+          },
+          commentAuthor: {
+            type: String,
+            required: true,
+          },
+          createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+          },
+        },
+      ],
     },
     {
         toJSON: {
