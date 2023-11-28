@@ -7,22 +7,22 @@ import CommunityMixes from '../components/CommunityMixes';
 
 export default function BrowseMix() {
     return (
-        <Container sx={{ height: '100vh' }}>
+        <Container sx={{ height: '100vh'}}>
             <Grid container spacing={2} sx={{ height: '100%', justifyContent: 'space-evenly'  }}>
                 <Grid item xs={12} sm={6} md={4}>
-                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1 }}>
+                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px' }}>
                     {/* <Typography sx={{ color: 'text.primary'}}>Community mixes here- think of name</Typography>
                     <Typography sx={{ color: 'text.primary'}}>list item components for each, can be selected</Typography> */}
                     <CommunityMixes />
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
-                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1 }}>
+                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px' }}>
                     <Typography sx={{ color: 'text.primary'}}>nutrition facts like on home</Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
-                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1 }}>
+                    <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px' }}>
                     <Typography sx={{ color: 'text.primary'}}>comments here</Typography>
                     <Typography sx={{ color: 'text.primary'}}>list item component for each comment</Typography>
                     <Typography sx={{ color: 'text.primary'}}>comment button</Typography>

@@ -44,23 +44,19 @@ export default function MixMaker() {
     const ingredients = data?.getIngredients || [];
 
     return (
-        <Stack sx={{ direction: 'column', alignItems: 'center', justifyContent: 'center'}}>
-            <Box
-              component='form'
-              sx={{
-                '& :not(style)': {m: 1, width: '25ch'},
-              }}
-              noValidate
-              autoComplete="off"
-              >
-                <TextField
+        <Stack sx={{ direction: 'column', alignItems: 'center', justifyContent: 'center', my: 2}}>
+            <TextField
                   id='mix-name-input'
                   label='Mix Name'
                   variant='outlined'
                   value={mixName}
                   onChange={(e) => setMixName(e.target.value)}
-                />
-            </Box>
+                  sx={{
+                    '& label': {
+                        color: 'text.primary',
+                      },
+                  }}
+            />
             <Autocomplete
             multiple
             id='ingredients-tags'
@@ -81,9 +77,18 @@ export default function MixMaker() {
                     {option.name}
                 </li>
             )}
-            style={{ width: 500 }}
+            sx={{ width: '80%', m:2}}
             renderInput={(params) => (
-                <TextField {...params} label='Select Ingredients' placeholder='My Ingredients' />
+                <TextField
+                  {...params}
+                  label='Select Ingredients'
+                  placeholder='My Ingredients'
+                  sx={{
+                    '& label': {
+                        color: 'text.primary',
+                      },
+                  }}
+                  />
             )}
             />
             <Button variant='contained' sx={{ m: 2}} onClick={handleFormSubmit}>Save Mix</Button>
