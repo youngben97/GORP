@@ -3,6 +3,7 @@ import * as React from 'react';
 // import Box from '@mui/material/Box';
 // import MixCard from '../components/MixCard';
 import { Container, Grid, Box, Typography } from '@mui/material';
+import CommunityMixes from '../components/CommunityMixes';
 
 export default function BrowseMix() {
     return (
@@ -10,8 +11,9 @@ export default function BrowseMix() {
             <Grid container spacing={2} sx={{ height: '100%', justifyContent: 'space-evenly'  }}>
                 <Grid item xs={12} sm={6} md={4}>
                     <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1 }}>
-                    <Typography sx={{ color: 'text.primary'}}>Community mixes here- think of name</Typography>
-                    <Typography sx={{ color: 'text.primary'}}>list item components for each, can be selected</Typography>
+                    {/* <Typography sx={{ color: 'text.primary'}}>Community mixes here- think of name</Typography>
+                    <Typography sx={{ color: 'text.primary'}}>list item components for each, can be selected</Typography> */}
+                    <CommunityMixes />
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
