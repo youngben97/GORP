@@ -1,24 +1,34 @@
-import React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
+import MixCard from './MixCard';
 
-const MixCard = ({ mix }) => {
-    return (
-        <Card>
-            <CardContent>
-                <Typography variant='h5'>{mix.mixName}</Typography>
-                <Typography>{mix.description}</Typography>
-            </CardContent>
-        </Card>
-    )
-}
+const CommunityMixes = () => {
+  const [communityMixes, setCommunityMixes] = useState([]);
 
-const CommunitySection = ({ mixes }) => {
-    return (
-        <div>
-            <Typography variant='h4'>Community Mixes</Typography>
-            {mixes.map((mix) => (
-                <MixCard key={mix.id} mix={mix} />
-            ))}
-        </div>
-    )
-}
+  useEffect(() => {
+    const fetchCommunityMixes = async () => {
+      try {
+        const response = await fetch('/api/community-mixes');
+        const data = await response.json();
+        setCommunityMixes(data);
+      } catch (error) {
+        console.error('Error fetching community mixes:', error);
+      }
+    };
+
+    fetchCommunityMixes();
+  }, []);
+
+  return (
+    <>
+      <Typography variant="h4" gutterBottom>
+        Community Mixes
+      </Typography>
+      {communityMixes.map((mix) => (
+        <MixCard key={mix._id} mix={mix} />
+      ))}
+    </>
+  );
+};
+
+export default CommunityMixes;
