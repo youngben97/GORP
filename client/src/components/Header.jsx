@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AppBar, Box, Toolbar, Button, Stack } from '@mui/material';
-import LogSignModal from './LogSignModal';
+import LogSignModal from './LoginSignUp/LogSignModal';
 
 
 import Auth from '../utils/auth';
