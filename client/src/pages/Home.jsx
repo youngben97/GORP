@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Grid, Typography, Box, Container, Stack } from '@mui/material';
 import MixMaker from '../components/MixMaker';
+import MyMixes from '../components/MyMixes';
 
 export default function Home() {
     return (
@@ -23,7 +24,7 @@ export default function Home() {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1 }}>
-                    <Typography sx={{ color: 'text.primary'}}>list of user's GORP mixes here. if none, then message telling them to make some</Typography>
+                    <MyMixes />
                     </Box>
                 </Grid>
             </Grid>
