@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography} from '@mui/icons-material';
+import { Card, CardContent, Typography} from '@mui/material';
 
 const MixCard = ({ mix}) => {
     return (
