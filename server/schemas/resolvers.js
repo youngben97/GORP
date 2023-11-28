@@ -43,12 +43,16 @@ const resolvers = {
       
             return { token, user };
           },
+          //right now this is only saving the object IDs to the DB
           addMix: async (parent, { mixName, ingredients }, context) => {
             if (context.user) {
+
+                const detailedIngredients = await Ingredient.find({ _id: { $in: ingredients }});
+
                 const mix = await Mix.create({
                     mixName,
                     mixCreator: context.user.username,
-                    ingredients,
+                    ingredients: detailedIngredients,
                 });
             
             await User.findOneAndUpdate(
@@ -56,9 +60,9 @@ const resolvers = {
                 { $addToSet: { mixes: mix._id } }
             );
             
-            return mix;
+                return mix.populate('ingredients');
             }
-            throw AuthenticationError;
+                throw AuthenticationError;
             ('You need to be logged in!');
           },
           addComment: async (parent, { mixId, commentText }, context) => {
