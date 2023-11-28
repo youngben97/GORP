@@ -43,7 +43,7 @@ query getMixes {
 `;
 
 export const QUERY_MIX = gql`
-query getMixes($mixId: ID!) {
+query getMix ($mixId: ID!) {
   getMix(mixId: $mixId) {
     _id
     comments {
@@ -64,6 +64,11 @@ query getMixes($mixId: ID!) {
     }
     mixCreator
     mixName
+    totalCalories
+    totalProtein
+    totalFats
+    totalCarbs
+    totalSodium
   }
 }
 `;

@@ -2,6 +2,33 @@ const { User, Mix, Ingredient } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
+    Mix: {
+        totalCalories: async (mix) => {
+          // Calculate total calories based on the mix's ingredients
+          const totalCalories = mix.ingredients.reduce((total, ingredient) => total + ingredient.calories, 0);
+          return totalCalories;
+        },
+        totalProtein: async (mix) => {
+          // Calculate total protein based on the mix's ingredients
+          const totalProtein = mix.ingredients.reduce((total, ingredient) => total + ingredient.protein, 0);
+          return totalProtein;
+        },
+        totalFats: async (mix) => {
+          // Calculate total fats based on the mix's ingredients
+          const totalFats = mix.ingredients.reduce((total, ingredient) => total + ingredient.fats, 0);
+          return totalFats;
+        },
+        totalCarbs: async (mix) => {
+          // Calculate total carbs based on the mix's ingredients
+          const totalCarbs = mix.ingredients.reduce((total, ingredient) => total + ingredient.carbs, 0);
+          return totalCarbs;
+        },
+        totalSodium: async (mix) => {
+          // Calculate total sodium based on the mix's ingredients
+          const totalSodium = mix.ingredients.reduce((total, ingredient) => total + ingredient.sodium, 0);
+          return totalSodium;
+        },
+    },
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
@@ -12,9 +39,15 @@ const resolvers = {
         getMixes: async () => {
             return Mix.find().populate('ingredients');
         },
-        getMix: async(parent, { mixId }) => {
-            return Mix.findOne({ mixId }).populate('ingredients');
-        },
+        getMix: async (parent, { mixId }) => {
+            try {
+              const mix = await Mix.findOne({ _id: mixId }).populate('ingredients');
+              return mix;
+            } catch (error) {
+              console.error('Error fetching mix:', error);
+              throw error;
+            }
+          },
         getIngredients: async() => {
             return Ingredient.find();
         },

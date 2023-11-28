@@ -17,6 +17,11 @@ type Mix {
     createdAt: String
     ingredients: [Ingredient]
     comments: [Comment]
+    totalCalories: Float
+    totalProtein: Float
+    totalFats: Float
+    totalCarbs: Float
+    totalSodium: Float
 }
 
 type Comment {
