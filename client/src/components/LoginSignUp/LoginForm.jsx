@@ -15,6 +15,8 @@ import {
 
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+//when there is no existing user, does not notify when you are logging in
+
 const Login = (props) => {
   const [formState, setFormState] = useState({email: '', password: ''});
   const [login, { error, data }] = useMutation(LOGIN_USER);
