@@ -52,8 +52,7 @@ mutation addComment($mixId: ID!, $commentText: String!) {
     _id
     comments {
       commentAuthor
-      commentBody
-      commentId
+      commentText
       createdAt
     }
     createdAt

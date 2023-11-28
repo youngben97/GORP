@@ -26,7 +26,7 @@ type Mix {
 
 type Comment {
     commentId: ID
-    commentBody: String
+    commentText: String
     commentAuthor: String
     createdAt: String
 }

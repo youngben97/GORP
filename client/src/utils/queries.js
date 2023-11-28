@@ -48,7 +48,7 @@ query getMix ($mixId: ID!) {
     _id
     comments {
       commentAuthor
-      commentBody
+      commentText
       commentId
       createdAt
     }
