@@ -20,9 +20,6 @@ const style = {
   
 };
 
-
-//need to replace mixname typography with an actual button
-
 export default function MyMixes() {
   const client = useApolloClient();
   const { loading, error, data } = useQuery(QUERY_ME);
@@ -30,6 +27,8 @@ export default function MyMixes() {
   const [removeMix] = useMutation(REMOVE_MIX);
   const [addComment] = useMutation(ADD_COMMENT);
   const [mixData, setMixData] = React.useState(null); // State to store mix query data
+  const [commentText, setCommentText] = React.useState(''); // State for comment text
+  const [comments, setComments] = React.useState([]); // State for comments
   
   const handleOpen = (index) => {
     const newOpenModal = [...openModal];
@@ -41,6 +40,9 @@ export default function MyMixes() {
     const newOpenModal = [...openModal];
     newOpenModal[index] = false;
     setOpenModal(newOpenModal);
+    // Clear comment-related state when closing modal
+    setCommentText('');
+    setComments([]);
   };
 
   const handleDeleteMix = async(mixId, index) => {
@@ -55,7 +57,24 @@ export default function MyMixes() {
     }
   };
 
-  const handleAddComment = async(mixId, index) => {}
+  const handleAddComment = async (mixId, index, commentText) => {
+    try {
+      console.log('Mix ID:', mixId);
+      console.log('Comment Text:', commentText);
+      await addComment({
+        variables: { mixId, commentText },
+        // refetchQueries: [{ query: QUERY_MIX, variables: { mixId } }],
+      });
+  
+      console.log('Comment added successfully');
+      // Optionally, you can refetch the mix data here as well
+      handleQueryMix(mixId);
+    } catch (error) {
+      console.error('Error adding comment:', error);
+      console.error('GraphQL error details:', error.graphQLErrors);
+      console.error('Network error details:', error.networkError);
+    }
+  };
 
   const handleQueryMix = async (mixId) => {
     try {
@@ -66,6 +85,8 @@ export default function MyMixes() {
       });
       console.log('Mix data:', mixData);
       setMixData(mixData); // Store mix query data in state
+      // Set comments in state
+      setComments(mixData.getMix.comments || []);
     } catch (error) {
       console.error('Error querying mix:', error);
     }
@@ -73,14 +94,18 @@ export default function MyMixes() {
 
   if (loading) return <p>Loading...</p>;
   //change error to styled typography
-  if (error) return <p> Login or sign up to view your mixes</p>;
+  if (error) return <p>Error loading data. Please try again.</p>;
 
-  const user = data.me;
+  const user = data?.me;
+
+  if (!user) return <p>Login or sign up to view your mixes</p>;
 
     return (
       <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center'}}>
-        <Typography variant='h5'>{user.username}'s Mixes</Typography>
-        {user.mixes.map((mix, index) => (
+        {user && (
+          <Typography variant='h5'>{user.username}'s Mixes</Typography>
+        )}
+        {user?.mixes.map((mix, index) => (
           <Box key={mix._id}>
             <Button
               variant='text'
@@ -90,6 +115,7 @@ export default function MyMixes() {
                 {mix.mixName}
               </Button>
               <Modal
+              
                 open={openModal[index]}
                 onClose={() => handleClose(index)}
               >
@@ -104,16 +130,40 @@ export default function MyMixes() {
                       <Typography variant='subtitle1'>Total Sodium: {mixData.getMix.totalSodium}</Typography>
                     </>
                   )}
+                  <Typography variant='h5'>Comments</Typography>
+                    {comments.map(comment => (
+                      <Box key={comment.commentId}>
+                        <Typography variant='body1'>{comment.commentAuthor}: {comment.commentText}</Typography>
+                        <Typography variant='caption'>Created at: {comment.createdAt}</Typography>
+                      </Box>
+                    ))}
                   <Box
                     component="form"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const comment = e.target.elements.comment.value;
+                      handleAddComment(mix._id, index, comment);
+                    }}
                     sx={{
                       '& > :not(style)': { m: 1, width: '25ch' },
                     }}
                     noValidate
                     autoComplete="off"
                   >
-                    <TextField id="comment-box" variant="outlined" />
-                    <Button variant='contained'>Comment</Button>
+                    <TextField
+                      id="comment"
+                      name="comment"
+                      label="Comment"
+                      variant="outlined"
+                      value={commentText}
+                      onChange={(e) => setCommentText(e.target.value)}
+                      />
+                    <Button
+                      type="submit"
+                      variant='contained'
+                    >
+                      Submit
+                    </Button>
                   </Box>
                   <Button variant='contained' onClick={() => handleDeleteMix(mix._id, index)}>
                     Delete Mix
