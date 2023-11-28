@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Checkbox, TextField, Autocomplete, Box, Button, Stack} from '@mui/material';
 import { CheckBoxOutlineBlank, CheckBox } from '@mui/icons-material';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_INGREDIENTS } from '../utils/queries';
+import { QUERY_INGREDIENTS, QUERY_ME } from '../utils/queries';
 import { ADD_MIX } from '../utils/mutation';
 
 import Auth from '../utils/auth';
@@ -10,13 +10,16 @@ import Auth from '../utils/auth';
 const icon = <CheckBoxOutlineBlank fontSize='small' />;
 const checkedIcon = <CheckBox fontSize='small' />;
 
-//needs useState to save values for mutation
-//addMix mutation goes here too
-
 export default function MixMaker() {
     const [mixName, setMixName] = React.useState('');
     const [ingredientList, setIngredientList] = React.useState([])
-    const [addMix, {error}] = useMutation(ADD_MIX);
+    const [addMix, {error}] = useMutation
+    (ADD_MIX, {
+        refetchQueries: [
+          QUERY_ME,
+          'me'
+        ]
+    });
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
