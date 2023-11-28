@@ -5,8 +5,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_INGREDIENTS, QUERY_ME } from '../utils/queries';
 import { ADD_MIX } from '../utils/mutation';
 
-import Auth from '../utils/auth';
-
 const icon = <CheckBoxOutlineBlank fontSize='small' />;
 const checkedIcon = <CheckBox fontSize='small' />;
 
