@@ -37,6 +37,7 @@ export default function MyMixes() {
     setOpenModal(newOpenModal);
     handleQueryMix(data.me.mixes[index]._id);
   };
+  
   const handleClose = (index) => {
     const newOpenModal = [...openModal];
     newOpenModal[index] = false;
@@ -138,8 +139,16 @@ export default function MyMixes() {
               >
                 <Stack sx={style}>
                   <Typography variant='h4'>{mix.mixName}</Typography>
-                  {mixData && (
+                  {mixData && mixData.getMix && (
                     <>
+                      <Typography variant='h5'>Ingredients</Typography>
+                        <ul>
+                        {mixData.getMix.ingredients.map((ingredient) => (
+                          <li key={ingredient.id}>
+                            {ingredient.name}: {ingredient.amount}
+                          </li>
+                          ))}
+                        </ul>
                       <Typography variant='subtitle1'>Total Calories: {mixData.getMix.totalCalories}</Typography>
                       <Typography variant='subtitle1'>Total Protein: {mixData.getMix.totalProtein}</Typography>
                       <Typography variant='subtitle1'>Total Fats: {mixData.getMix.totalFats}</Typography>
