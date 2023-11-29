@@ -11,6 +11,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { MixProvider } from './MixContext';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -68,10 +69,12 @@ export default function AppContainer() {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <CssBaseline />
+        <MixProvider>
             <Header/>
             <Container sx={{ marginTop: 20, marginBottom: 2 }}>
               <Outlet />
             </Container>
+        </MixProvider>
       </React.Fragment>
     </ThemeProvider>
     </ApolloProvider>
