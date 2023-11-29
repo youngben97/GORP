@@ -6,16 +6,18 @@ import { useMixContext } from '../../MixContext';
 const NutritionData = () => {
     const { totals, setTotals } = useMixContext();
   
-    // Now you can use totals and setTotals in your component
-    // ...
-  
     return (
-      <Stack direction='row'>
-        <Typography>Calories: {totals.calories}</Typography>
-        <Typography>Protein: {totals.protein}</Typography>
-        <Typography>Fats: {totals.fats}</Typography>
-        <Typography>Carbs: {totals.carbs}</Typography>
-        <Typography>Sodium: {totals.sodium}</Typography>
+      <Stack sx={{ alignItems: 'center', justifyContent: 'center'}}>
+        <Typography sx={{m:1, p:1}}>Calories:</Typography>
+        <Typography>{totals.calories}</Typography>
+        <Typography sx={{m:1, p:1}}>Protein:</Typography>
+        <Typography>{totals.protein}</Typography>
+        <Typography sx={{m:1, p:1}}>Fats:</Typography>
+        <Typography>{totals.fats}</Typography>
+        <Typography sx={{m:1, p:1}}>Carbs:</Typography>
+        <Typography>{totals.carbs}</Typography>
+        <Typography sx={{m:1, p:1}}>Sodium:</Typography>
+        <Typography sx={{mb: 2 }}>{totals.sodium}</Typography>
       </Stack>
     );
   };
