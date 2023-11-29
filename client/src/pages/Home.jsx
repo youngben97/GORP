@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Typography, Box, Container, Stack } from '@mui/material';
-import MixMaker from '../components/MixMaker';
-import MyMixes from '../components/MyMixes';
+import MixMaker from '../components/HomeComponent/MixMaker';
+import MyMixes from '../components/HomeComponent/MyMixes';
 
 export default function Home() {
     return (

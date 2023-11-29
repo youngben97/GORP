@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Checkbox, TextField, Autocomplete, Box, Button, Stack} from '@mui/material';
 import { CheckBoxOutlineBlank, CheckBox } from '@mui/icons-material';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_INGREDIENTS, QUERY_ME } from '../utils/queries';
-import { ADD_MIX } from '../utils/mutation';
+import { QUERY_INGREDIENTS, QUERY_ME } from '../../utils/queries';
+import { ADD_MIX } from '../../utils/mutation';
 
 const icon = <CheckBoxOutlineBlank fontSize='small' />;
 const checkedIcon = <CheckBox fontSize='small' />;
