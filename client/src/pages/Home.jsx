@@ -12,9 +12,9 @@ export default function Home() {
                     <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px', p:1 }}>
                         <Stack sx={{ bgcolor:'background.paper', direction: 'column', alignContent: 'center', justifyContent: 'center', m:2, borderRadius: 1 }}>
                             <Stack sx={{ bgcolor: 'primary.main', direction: 'column', alignContent: 'center', justifyContent: 'center', m: 1, borderRadius: 1}}>
-                                <Typography variant= 'h4' sx={{ color: 'text.secondary', m:1, textAlign: 'center' }}>Mix it up!</Typography>
-                                <Typography variant='body1' sx={{ color: 'text.secondary', m:1, textAlign: 'center'}}>Come up with your own custom trail mix, get nutritional data, and share mixes with others.</Typography>
-                                <Typography variant='body1' sx={{ color: 'text.secondary', m:1, textAlign: 'center'}}>Use the mix-maker below to get GORPing!</Typography>
+                                <Typography variant= 'h4' sx={{ color: 'background.default', m:1, textAlign: 'center' }}>Mix it up!</Typography>
+                                <Typography variant='body1' sx={{ color: 'background.default', m:1, textAlign: 'center'}}>Come up with your own custom trail mix, get nutritional data, and share mixes with others.</Typography>
+                                <Typography variant='body1' sx={{ color: 'background.default', m:1, textAlign: 'center'}}>Use the mix-maker below to get GORPing!</Typography>
                             </Stack>
                             <MixMaker/>
                         </Stack>
