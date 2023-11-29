@@ -21,10 +21,10 @@ query getMixes {
   getMixes {
     _id
     comments {
+      _id
       commentAuthor
-      commentBody
+      commentText
       createdAt
-      commentId
     }
     createdAt
     ingredients {
