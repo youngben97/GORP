@@ -13,7 +13,7 @@ export default function IngredientNutrient() {
           <Typography variant='h5'>Ingredients</Typography>
           <ul>
             {currentMixDetails.ingredients.map((ingredient) => (
-              <li key={ingredient.id}>
+              <li key={ingredient._id}>
                 {ingredient.name}: {ingredient.amount}
               </li>
             ))}
