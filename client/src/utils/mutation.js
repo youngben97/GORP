@@ -75,24 +75,8 @@ export const REMOVE_MIX = gql`
 mutation removeMix($mixId: ID!) {
   removeMix(mixId: $mixId) {
     _id
-    comments {
-      commentAuthor
-      commentBody
-      commentId
-      createdAt
-    }
-    createdAt
-    ingredients {
-      _id
-      calories
-      carbs
-      name
-      fats
-      protein
-      sodium
-    }
-    mixCreator
     mixName
+    mixCreator
   }
 }
 `;

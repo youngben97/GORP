@@ -4,11 +4,13 @@ import { CheckBoxOutlineBlank, CheckBox } from '@mui/icons-material';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_INGREDIENTS, QUERY_ME } from '../../utils/queries';
 import { ADD_MIX } from '../../utils/mutation';
+import { useMixContext } from '../../MixContext';
 
 const icon = <CheckBoxOutlineBlank fontSize='small' />;
 const checkedIcon = <CheckBox fontSize='small' />;
 
 export default function MixMaker() {
+    const { totals, updateTotals } = useMixContext();
     const [mixName, setMixName] = React.useState('');
     const [ingredientList, setIngredientList] = React.useState([])
     const [addMix, {error}] = useMutation
@@ -38,7 +40,17 @@ export default function MixMaker() {
     const handleIngredientChange = (event, newValue) => {
         console.log('Selected ingredients:', newValue);
         setIngredientList(newValue);
-    }
+
+        const newTotals = {
+            calories: newValue.reduce((total, ingredient) => total + ingredient.calories, 0),
+            protein: newValue.reduce((total, ingredient) => total + ingredient.protein, 0),
+            fats: newValue.reduce((total, ingredient) => total + ingredient.fats, 0),
+            carbs: newValue.reduce((total, ingredient) => total + ingredient.carbs, 0),
+            sodium: newValue.reduce((total, ingredient) => total + ingredient.sodium, 0),
+          };
+
+        updateTotals(newTotals);
+    };
 
     const { loading, data } = useQuery(QUERY_INGREDIENTS);
     const ingredients = data?.getIngredients || [];
