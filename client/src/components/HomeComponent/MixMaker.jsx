@@ -55,6 +55,9 @@ export default function MixMaker() {
     const { loading, data } = useQuery(QUERY_INGREDIENTS);
     const ingredients = data?.getIngredients || [];
 
+    //add a conditional render for the save button
+    //"login to save your mix" if user is not logged in
+
     return (
         <Stack sx={{ direction: 'column', alignItems: 'center', justifyContent: 'center', my: 2}}>
             <TextField
