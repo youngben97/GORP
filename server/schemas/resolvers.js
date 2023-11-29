@@ -132,6 +132,8 @@ const resolvers = {
             throw AuthenticationError;
           },
           removeComment: async (parent, { mixId, commentId }, context) => {
+            // console.log('Mix ID:', mixId);
+            // console.log('Comment ID:', commentId);
             if (context.user) {
                 return Mix.findOneAndUpdate(
                     { _id: mixId },

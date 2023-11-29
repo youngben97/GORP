@@ -25,7 +25,7 @@ type Mix {
 }
 
 type Comment {
-    commentId: ID
+    _id: ID
     commentText: String
     commentAuthor: String
     createdAt: String
@@ -59,7 +59,7 @@ type Mutation {
     addMix(mixName: String!, ingredients: [ID]!): Mix
     addComment(mixId: ID!, commentText: String!): Mix
     removeMix(mixId: ID!): Mix
-    removeComment(mixID: ID!, commentId: ID!): Mix
+    removeComment(mixId: ID!, commentId: ID!): Mix
 }
 
 `

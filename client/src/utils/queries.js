@@ -43,15 +43,16 @@ query getMixes {
 `;
 
 export const QUERY_MIX = gql`
-query getMix ($mixId: ID!) {
+query getMix($mixId: ID!) {
   getMix(mixId: $mixId) {
     _id
-    comments {
-      commentAuthor
-      commentText
-      commentId
-      createdAt
-    }
+    mixCreator
+    mixName
+    totalCalories
+    totalCarbs
+    totalFats
+    totalProtein
+    totalSodium
     createdAt
     ingredients {
       _id
@@ -62,13 +63,12 @@ query getMix ($mixId: ID!) {
       protein
       sodium
     }
-    mixCreator
-    mixName
-    totalCalories
-    totalProtein
-    totalFats
-    totalCarbs
-    totalSodium
+    comments {
+      _id
+      commentAuthor
+      commentText
+      createdAt
+    }
   }
 }
 `;
