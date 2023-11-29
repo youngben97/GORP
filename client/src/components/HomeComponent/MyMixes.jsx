@@ -109,18 +109,18 @@ export default function MyMixes() {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Typography>Loading...</Typography>;
   //change error to styled typography
   // if (error) return <p>Error loading data. Please try again.</p>;
 
   const user = data?.me;
 
-  if (!user) return <p>Login or sign up to view your mixes</p>;
+  if (!user) return <Typography variant='body1' sx={{ bgcolor: 'primary.main', color: 'text.secondary', m:1, p:1, textAlign: 'center', borderRadius: 1}}>Login or sign up to view your mixes.</Typography>;
 
     return (
-      <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center'}}>
+      <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center', p:1}}>
         {user && (
-          <Typography variant='h5'>{user.username}'s Mixes</Typography>
+          <Typography variant='h5' sx={{ bgcolor: 'primary.main', color: 'text.secondary', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
         )}
         {user?.mixes.map((mix, index) => (
           <Box key={mix._id}>
