@@ -8,16 +8,16 @@ const NutritionData = () => {
   
     return (
       <Stack sx={{ alignItems: 'center', justifyContent: 'center'}}>
-        <Typography sx={{m:1, p:1}}>Calories:</Typography>
-        <Typography>{totals.calories}</Typography>
-        <Typography sx={{m:1, p:1}}>Protein:</Typography>
-        <Typography>{totals.protein}</Typography>
-        <Typography sx={{m:1, p:1}}>Fats:</Typography>
-        <Typography>{totals.fats}</Typography>
-        <Typography sx={{m:1, p:1}}>Carbs:</Typography>
-        <Typography>{totals.carbs}</Typography>
-        <Typography sx={{m:1, p:1}}>Sodium:</Typography>
-        <Typography sx={{mb: 2 }}>{totals.sodium}</Typography>
+        <Typography sx={{m:1, p:1, color: 'background.default'}}>Calories:</Typography>
+        <Typography sx={{color: 'background.default'}}>{totals.calories}</Typography>
+        <Typography sx={{m:1, p:1, color: 'background.default'}}>Protein:</Typography>
+        <Typography sx={{color: 'background.default'}}>{totals.protein}</Typography>
+        <Typography sx={{m:1, p:1, color: 'background.default'}}>Fats:</Typography>
+        <Typography sx={{color: 'background.default'}}>{totals.fats}</Typography>
+        <Typography sx={{m:1, p:1, color: 'background.default'}}>Carbs:</Typography>
+        <Typography sx={{color: 'background.default'}}>{totals.carbs}</Typography>
+        <Typography sx={{m:1, p:1, color: 'background.default'}}>Sodium:</Typography>
+        <Typography sx={{mb: 2, color: 'background.default' }}>{totals.sodium}</Typography>
       </Stack>
     );
   };
