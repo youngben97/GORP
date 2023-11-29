@@ -11,12 +11,18 @@ export const MixProvider = ({ children }) => {
       sodium: 0,
     });
   
+    const [currentMixDetails, setCurrentMixDetails] = useState(null);
+
     const updateTotals = (newTotals) => {
       setTotals(newTotals);
     };
+
+    const updateMixDetails = (mixDetails) => {
+      setCurrentMixDetails(mixDetails);
+    }
   
     return (
-      <MixContext.Provider value={{ totals, updateTotals }}>
+      <MixContext.Provider value={{ totals, updateTotals, currentMixDetails, updateMixDetails }}>
         {children}
       </MixContext.Provider>
     );
@@ -24,8 +30,11 @@ export const MixProvider = ({ children }) => {
 
 export const useMixContext = () => {
   const context = useContext(MixContext);
-  if (!context) {
-    throw new Error('useMixContext must be used within a MixProvider');
+
+  console.log('Context in useMixContext:', context);
+
+  if (!context || !context.updateMixDetails) {
+    throw new Error('useMixContext must be used within a MixProvider with a valid context');
   }
   return context;
   };
