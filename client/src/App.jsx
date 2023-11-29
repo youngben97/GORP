@@ -35,31 +35,49 @@ const client = new ApolloClient({
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    type: 'light',
     primary: {
-      main: '#37853a',
+      main: '#933810',
     },
     secondary: {
-      main: '#f50057',
-      light: '#f53377',
+      main: '#5B3330',
     },
     background: {
-      default: '#fff3e0',
-      paper: '#fbf6f6',
+      default: '#c9c5b0',
+      paper: '#ed8c40',
     },
     error: {
-      main: '#d50000',
-    },
-    divider: '#f50057',
-    text: {
-      primary: 'rgba(0,0,0,0.87)',
-      secondary: '#fbebee',
+      main: '#264653',
+      light: '#757761',
     },
   },
-  shape: {
-    borderRadius: 4,
-  },
-})
+});
+  //   palette: {
+//     mode: 'light',
+//     primary: {
+//       main: '#37853a',
+//     },
+//     secondary: {
+//       main: '#f50057',
+//       light: '#f53377',
+//     },
+//     background: {
+//       default: '#fff3e0',
+//       paper: '#fbf6f6',
+//     },
+//     error: {
+//       main: '#d50000',
+//     },
+//     divider: '#f50057',
+//     text: {
+//       primary: 'rgba(0,0,0,0.87)',
+//       secondary: '#fbebee',
+//     },
+//   },
+//   shape: {
+//     borderRadius: 4,
+//   },
+// })
 
 
 export default function AppContainer() {
