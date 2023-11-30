@@ -69,7 +69,6 @@ export default function MyMixes() {
       });
   
       console.log('Comment added successfully');
-      // Optionally, you can refetch the mix data here as well
       handleQueryMix(mixId);
     } catch (error) {
       console.error('Error adding comment:', error);

@@ -3,7 +3,9 @@ import * as React from 'react';
 // import Box from '@mui/material/Box';
 // import MixCard from '../components/MixCard';
 import { Container, Grid, Box, Typography } from '@mui/material';
-import CommunityMixes from '../components/CommunityMixes';
+import CommunityMixes from '../components/BrowseComponent/CommunityMixes';
+import IngredientNutrient from '../components/BrowseComponent/IngrNutr';
+import MixComments from '../components/BrowseComponent/MixComments';
 
 export default function BrowseMix() {
     return (
@@ -18,14 +20,12 @@ export default function BrowseMix() {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px' }}>
-                    <Typography sx={{ color: 'text.primary'}}>nutrition facts like on home</Typography>
+                    <IngredientNutrient/>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Box sx={{ bgcolor: 'secondary.main', height: '100%', flexGrow: 1, borderRadius: '16px' }}>
-                    <Typography sx={{ color: 'text.primary'}}>comments here</Typography>
-                    <Typography sx={{ color: 'text.primary'}}>list item component for each comment</Typography>
-                    <Typography sx={{ color: 'text.primary'}}>comment button</Typography>
+                        <MixComments/>
                     </Box>
                 </Grid>
             </Grid>
