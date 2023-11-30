@@ -138,18 +138,19 @@ export default function MyMixes() {
                 onClose={() => handleClose(index)}
               >
                 <Stack sx={style}>
-                  <Box sx={{bgcolor: 'background.paper', width: '100%', borderRadius: 1}}>
+                  <Box sx={{bgcolor: 'background.paper', width: '105%', borderRadius: 1}}>
+                    <Box sx={{bgcolor: 'primary.main', width: '95%', margin: '8px auto', borderRadius: 1}}>
                   <Typography variant='h4' sx={{color: 'background.default', textAlign: 'center'}}>{mix.mixName}</Typography>
                   {mixData && mixData.getMix && (
                     <>
                       <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Ingredients</Typography>
-                        <List sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <Typography variant='subtitle1' sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         {mixData.getMix.ingredients.map((ingredient) => (
-                          <ListItem key={ingredient.id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                          <Typography variant='subtitle1' key={ingredient.id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'background.default'}}>
                             {ingredient.name}
-                          </ListItem>
+                          </Typography>
                           ))}
-                        </List>
+                        </Typography>
                       <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
                       <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
                       <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
@@ -157,9 +158,10 @@ export default function MyMixes() {
                       <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
                     </>
                   )}
+                  </Box>
                   <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Comments</Typography>
                     {comments.map(comment => (
-                      <Box key={comment.commentId}>
+                      <Box key={comment.commentId} sx={{textAlign: 'center'}}>
                         <Typography variant='body1'>{comment.commentAuthor}: {comment.commentText}</Typography>
                         <Typography variant='caption'>Created at: {comment.createdAt}</Typography>
                         <Button
@@ -178,7 +180,11 @@ export default function MyMixes() {
                       handleAddComment(mix._id, index, comment);
                     }}
                     sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
                       '& > :not(style)': { m: 1, width: '25ch' },
+                      textAlign: 'center'
                     }}
                     noValidate
                     autoComplete="off"
@@ -198,7 +204,15 @@ export default function MyMixes() {
                       Submit
                     </Button>
                   </Box>
-                  <Button variant='contained' onClick={() => handleDeleteMix(mix._id, index)}>
+                  <Button 
+                    variant='contained' 
+                    onClick={() => handleDeleteMix(mix._id, index)}
+                    sx={{
+                      display: 'block',
+                      margin: 'auto',
+                      mt: 1,
+                    }}
+                    >
                     Delete Mix
                   </Button>
                   </Box>
