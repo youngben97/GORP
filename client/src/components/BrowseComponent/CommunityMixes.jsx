@@ -8,7 +8,6 @@ export default function CommunityMixes() {
   const client = useApolloClient();
   const { loading, data } = useQuery(QUERY_MIXES);
   const {updateMixDetails } = useMixContext();
-  const [selectedMix, setSelectedMix] = React.useState(null);
 
   const handleButtonClick = async (mixId) => {
     try {
@@ -22,7 +21,6 @@ export default function CommunityMixes() {
       console.log('Received mixData:', mixData);
 
       updateMixDetails(mixData.getMix);
-      setSelectedMix(mixData.getMix);
     } catch (error) {
       console.error('Error fetching mix details:', error);
     }
