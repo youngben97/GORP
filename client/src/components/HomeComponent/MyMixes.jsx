@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Typography, Stack, Button, Modal, TextField } from '@mui/material';
+import { Box, Typography, Stack, Button, Modal, TextField, List, ListItem} from '@mui/material';
 import { useQuery, useMutation, useApolloClient } from '@apollo/client';
 import { QUERY_ME, QUERY_MIX } from '../../utils/queries';
 import { REMOVE_MIX, ADD_COMMENT, REMOVE_COMMENT } from '../../utils/mutation';
@@ -10,14 +10,14 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+  bgcolor: 'secondary.main',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
   direction: 'column',
   alignItems: 'center',
-  justifyContent: 'center'
-  
+  justifyContent: 'center',
+  borderRadius: '16px'
 };
 
 export default function MyMixes() {
@@ -69,6 +69,7 @@ export default function MyMixes() {
       });
   
       console.log('Comment added successfully');
+      // Optionally, you can refetch the mix data here as well
       handleQueryMix(mixId);
     } catch (error) {
       console.error('Error adding comment:', error);
@@ -120,14 +121,14 @@ export default function MyMixes() {
     return (
       <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center', p:1}}>
         {user && (
-          <Typography variant='h5' sx={{ bgcolor: 'primary.main', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
+          <Typography variant='h5' sx={{ bgcolor: 'primary.main', color: 'background.default', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
         )}
         {user?.mixes.map((mix, index) => (
           <Box key={mix._id}>
             <Button
               variant='text'
               onClick={() => handleOpen(index)}
-              sx={{ color: 'background.paper'}}
+              sx={{ color: 'secondary.main'}}
               >
                 {mix.mixName}
               </Button>
@@ -137,29 +138,26 @@ export default function MyMixes() {
                 onClose={() => handleClose(index)}
               >
                 <Stack sx={style}>
-                  <Box sx={{bgcolor: 'secondary.main'}}>
-                  <Typography variant='h4' sx={{color: 'background.default'}}>{mix.mixName}</Typography>
-                  </Box>
+                  <Box sx={{bgcolor: 'background.paper', width: '100%', borderRadius: 1}}>
+                  <Typography variant='h4' sx={{color: 'background.default', textAlign: 'center'}}>{mix.mixName}</Typography>
                   {mixData && mixData.getMix && (
                     <>
-                    <Box sx={{bgcolor: 'secondary.main'}}>
-                      <Typography variant='h5' sx={{color: 'background.default'}}>Ingredients</Typography>
-                        <ul>
+                      <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Ingredients</Typography>
+                        <List sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         {mixData.getMix.ingredients.map((ingredient) => (
-                          <li key={ingredient.id} sx={{color: 'background.default', textAlign: 'center'}}>
+                          <ListItem key={ingredient.id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                             {ingredient.name}
-                          </li>
+                          </ListItem>
                           ))}
-                        </ul>
-                        </Box>
-                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
+                        </List>
+                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
                     </>
                   )}
-                  <Typography variant='h5' sx={{color: 'background.default'}}>Comments</Typography>
+                  <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Comments</Typography>
                     {comments.map(comment => (
                       <Box key={comment.commentId}>
                         <Typography variant='body1'>{comment.commentAuthor}: {comment.commentText}</Typography>
@@ -203,10 +201,11 @@ export default function MyMixes() {
                   <Button variant='contained' onClick={() => handleDeleteMix(mix._id, index)}>
                     Delete Mix
                   </Button>
+                  </Box>
                   {/* need a component for the macronutrient list here, see 26 thoughtlist  */}
                 </Stack>
               </Modal>
-            <Typography variant='subtitle1'>Created at: {mix.createdAt}</Typography>
+            <Typography variant='subtitle1' sx={{color: 'secondary.main'}}>Created at: {mix.createdAt}</Typography>
           </Box>
         ))}
       </Stack>
