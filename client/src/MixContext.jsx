@@ -31,7 +31,7 @@ export const MixProvider = ({ children }) => {
 export const useMixContext = () => {
   const context = useContext(MixContext);
 
-  console.log('Context in useMixContext:', context);
+  // console.log('Context in useMixContext:', context);
 
   if (!context || !context.updateMixDetails) {
     throw new Error('useMixContext must be used within a MixProvider with a valid context');
