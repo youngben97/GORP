@@ -121,7 +121,7 @@ export default function MyMixes() {
     return (
       <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center', p:1}}>
         {user && (
-          <Typography variant='h5' sx={{ bgcolor: 'primary.main', color: 'text.secondary', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
+          <Typography variant='h5' sx={{ bgcolor: 'primary.main', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
         )}
         {user?.mixes.map((mix, index) => (
           <Box key={mix._id}>
@@ -138,25 +138,29 @@ export default function MyMixes() {
                 onClose={() => handleClose(index)}
               >
                 <Stack sx={style}>
-                  <Typography variant='h4'>{mix.mixName}</Typography>
+                  <Box sx={{bgcolor: 'secondary.main'}}>
+                  <Typography variant='h4' sx={{color: 'background.default'}}>{mix.mixName}</Typography>
+                  </Box>
                   {mixData && mixData.getMix && (
                     <>
-                      <Typography variant='h5'>Ingredients</Typography>
+                    <Box sx={{bgcolor: 'secondary.main'}}>
+                      <Typography variant='h5' sx={{color: 'background.default'}}>Ingredients</Typography>
                         <ul>
                         {mixData.getMix.ingredients.map((ingredient) => (
-                          <li key={ingredient.id}>
-                            {ingredient.name}: {ingredient.amount}
+                          <li key={ingredient.id} sx={{color: 'background.default', textAlign: 'center'}}>
+                            {ingredient.name}
                           </li>
                           ))}
                         </ul>
-                      <Typography variant='subtitle1'>Total Calories: {mixData.getMix.totalCalories}</Typography>
-                      <Typography variant='subtitle1'>Total Protein: {mixData.getMix.totalProtein}</Typography>
-                      <Typography variant='subtitle1'>Total Fats: {mixData.getMix.totalFats}</Typography>
-                      <Typography variant='subtitle1'>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
-                      <Typography variant='subtitle1'>Total Sodium: {mixData.getMix.totalSodium}</Typography>
+                        </Box>
+                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.default'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
                     </>
                   )}
-                  <Typography variant='h5'>Comments</Typography>
+                  <Typography variant='h5' sx={{color: 'background.default'}}>Comments</Typography>
                     {comments.map(comment => (
                       <Box key={comment.commentId}>
                         <Typography variant='body1'>{comment.commentAuthor}: {comment.commentText}</Typography>
