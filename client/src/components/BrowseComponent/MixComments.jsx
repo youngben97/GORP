@@ -4,6 +4,7 @@ import { useMixContext } from '../../MixContext';
 import { useMutation, useApolloClient } from '@apollo/client';
 import { QUERY_MIX } from '../../utils/queries';
 import { ADD_COMMENT, REMOVE_COMMENT } from '../../utils/mutation';
+import Auth from '../../utils/auth';
 
 export default function MixComments() {
   const client = useApolloClient();
@@ -11,7 +12,8 @@ export default function MixComments() {
   const [addComment] = useMutation(ADD_COMMENT);
   const [removeComment] = useMutation(REMOVE_COMMENT);
   const [commentText, setCommentText] = React.useState(''); // State for comment text
-  const [comments, setComments] = React.useState([]); // State for comments
+  const userProfile = Auth.getProfile();
+  console.log('userProfile:', userProfile);
  
 
   const handleAddComment = async (mixId, commentText) => {
@@ -38,6 +40,24 @@ export default function MixComments() {
     }
   };
 
+  const handleRemoveComment = async (mixId, commentId) => {
+    try {
+      await removeComment({
+        variables: { mixId, commentId}
+      });
+
+      const { data: mixData } = await client.query({
+        query: QUERY_MIX,
+        variables: { mixId },
+      });
+
+      updateMixDetails(mixData.getMix);
+      console.log('Comment successfully deleted');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Stack>
       {currentMixDetails && (
@@ -49,6 +69,9 @@ export default function MixComments() {
                 <Typography variant='subtitle1'>{comment.commentAuthor}</Typography>
                 <Typography variant='subtitle1'>{comment.commentText}</Typography>
                 <Typography variant='caption'>Posted on {comment.createdAt}</Typography>
+                {userProfile.data.username === comment.commentAuthor && (
+                  <Button variant='contained' onClick={() => handleRemoveComment(currentMixDetails._id, comment._id)}>Delete</Button>
+                )}
               </li>
             ))}
           </ul>
