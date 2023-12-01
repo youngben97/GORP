@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack, Typography, Box, TextField, Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useMixContext } from '../../MixContext';
 import { useMutation, useApolloClient } from '@apollo/client';
 import { QUERY_MIX } from '../../utils/queries';
@@ -59,22 +60,22 @@ export default function MixComments() {
   };
 
   return (
-    <Stack>
+    <Stack sx={{ alignItems: 'center', justifyContent: 'center', p:1}}>
       {currentMixDetails && (
         <>
-          <Typography variant='h5'>Comments</Typography>
-          <ul>
+          <Typography variant='h5' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Comments</Typography>
             {currentMixDetails.comments.map((comment) => (
-              <li key={comment._id}>
+              <Box key={comment._id}>
                 <Typography variant='subtitle1'>{comment.commentAuthor}</Typography>
                 <Typography variant='subtitle1'>{comment.commentText}</Typography>
                 <Typography variant='caption'>Posted on {comment.createdAt}</Typography>
                 {userProfile.data.username === comment.commentAuthor && (
-                  <Button variant='contained' onClick={() => handleRemoveComment(currentMixDetails._id, comment._id)}>Delete</Button>
+                  <Button variant='contained' onClick={() => handleRemoveComment(currentMixDetails._id, comment._id)}>
+                    <DeleteIcon/>
+                  </Button>
                 )}
-              </li>
+              </Box>
             ))}
-          </ul>
           <Box
             component="form"
             onSubmit={(e) => {
@@ -84,7 +85,7 @@ export default function MixComments() {
               handleAddComment(mixId, comment);
             }}
             sx={{
-              '& > :not(style)': { m: 1, width: '25ch' },
+            m: 1, width: '100%', display: 'flex', flexDirection:'column', alignItems: 'center', justifyContent: 'space-between'
             }}
             noValidate
             autoComplete="off"
@@ -96,10 +97,12 @@ export default function MixComments() {
               variant="outlined"
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
+              sx={{m:1}}
             />
             <Button
               type="submit"
               variant='contained'
+              sx={{m:1}}
             >
               Submit
             </Button>
@@ -107,7 +110,7 @@ export default function MixComments() {
         </>
       )}
       {(!currentMixDetails) && (
-        <Typography variant='body1'>No comments available for this mix.</Typography>
+        <Typography variant='h6' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Select a mix to view comments.</Typography>
       )}
     </Stack>
   );

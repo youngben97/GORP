@@ -76,9 +76,9 @@ export default function MixMaker() {
                   value={mixName}
                   onChange={(e) => setMixName(e.target.value)}
                   sx={{
-                    '& label': {
                         color: 'text.primary',
-                      },
+                        bgcolor: 'background.default',
+                        borderRadius: 1
                   }}
             />
             <Autocomplete
@@ -101,7 +101,7 @@ export default function MixMaker() {
                     {option.name}
                 </li>
             )}
-            sx={{ width: '80%', m:2}}
+            sx={{ width: '80%', m:2, bgcolor: 'background.default'}}
             renderInput={(params) => (
                 <TextField
                   {...params}

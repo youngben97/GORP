@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Box, Typography, Stack, Button, Modal, TextField, List, ListItem} from '@mui/material';
+import { Box, Typography, Stack, Button, Modal, TextField } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useQuery, useMutation, useApolloClient } from '@apollo/client';
 import { QUERY_ME, QUERY_MIX } from '../../utils/queries';
 import { REMOVE_MIX, ADD_COMMENT, REMOVE_COMMENT } from '../../utils/mutation';
@@ -69,7 +70,7 @@ export default function MyMixes() {
       });
   
       console.log('Comment added successfully');
-      // Optionally, you can refetch the mix data here as well
+      setCommentText('');
       handleQueryMix(mixId);
     } catch (error) {
       console.error('Error adding comment:', error);
@@ -124,11 +125,11 @@ export default function MyMixes() {
           <Typography variant='h5' sx={{ bgcolor: 'primary.main', color: 'background.default', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
         )}
         {user?.mixes.map((mix, index) => (
-          <Box key={mix._id}>
+          <Box key={mix._id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'space-between', bgcolor: 'background.default', p: 1, m:1, borderRadius: 1, width: '100%' }}>
             <Button
-              variant='text'
+              variant='outlined'
               onClick={() => handleOpen(index)}
-              sx={{ color: 'secondary.main'}}
+              sx={{ color: 'error.light'}}
               >
                 {mix.mixName}
               </Button>
@@ -168,7 +169,7 @@ export default function MyMixes() {
                           variant='outline'
                           onClick={() => handleRemoveComment(mix._id, comment._id)}
                         >
-                          Delete Comment
+                          <DeleteIcon/>
                         </Button>
                       </Box>
                     ))}
@@ -219,7 +220,7 @@ export default function MyMixes() {
                   {/* need a component for the macronutrient list here, see 26 thoughtlist  */}
                 </Stack>
               </Modal>
-            <Typography variant='subtitle1' sx={{color: 'secondary.main'}}>Created at: {mix.createdAt}</Typography>
+            <Typography variant='subtitle2' sx={{color: 'secondary.main'}}>Created on: {mix.createdAt}</Typography>
           </Box>
         ))}
       </Stack>

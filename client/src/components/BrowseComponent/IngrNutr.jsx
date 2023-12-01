@@ -6,18 +6,16 @@ export default function IngredientNutrient() {
   const { currentMixDetails } = useMixContext();
 
   return (
-    <Stack>
+    <Stack sx={{ alignItems: 'center', justifyContent: 'center', p:1}}>
       {currentMixDetails && (
         <>
-          <Typography variant='h4'>{currentMixDetails.mixName}</Typography>
+          <Typography variant='h4' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>{currentMixDetails.mixName}</Typography>
           <Typography variant='h5'>Ingredients</Typography>
-          <ul>
             {currentMixDetails.ingredients.map((ingredient) => (
-              <li key={ingredient._id}>
-                {ingredient.name}: {ingredient.amount}
-              </li>
+              <Typography key={ingredient._id}>
+                {ingredient.name}
+              </Typography>
             ))}
-          </ul>
           <Typography variant='subtitle1'>Total Calories: {currentMixDetails.totalCalories}</Typography>
           <Typography variant='subtitle1'>Total Protein: {currentMixDetails.totalProtein}</Typography>
           <Typography variant='subtitle1'>Total Fats: {currentMixDetails.totalFats}</Typography>
@@ -26,7 +24,7 @@ export default function IngredientNutrient() {
         </>
       )}
       {!currentMixDetails && (
-        <Typography variant='body1'>No mix details available. Please select a mix.</Typography>
+        <Typography variant='h6' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Select a mix to view its ingredients and nutritional information!</Typography>
       )}
     </Stack>
   );
