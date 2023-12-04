@@ -63,7 +63,7 @@ export default function MixComments() {
     <Stack sx={{ alignItems: 'center', justifyContent: 'center', p:1}}>
       {currentMixDetails && (
         <>
-          <Typography variant='h5' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Comments</Typography>
+          <Typography variant='h5' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1, border:2, borderColor: 'background.default'}}>Comments</Typography>
             {currentMixDetails.comments.map((comment) => (
               <Box key={comment._id}>
                 <Typography variant='subtitle1'>{comment.commentAuthor}</Typography>
@@ -110,7 +110,7 @@ export default function MixComments() {
         </>
       )}
       {(!currentMixDetails) && (
-        <Typography variant='h6' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Select a mix to view comments.</Typography>
+        <Typography variant='h6' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1, border:2, borderColor: 'background.default'}}>Select a mix to view comments.</Typography>
       )}
     </Stack>
   );

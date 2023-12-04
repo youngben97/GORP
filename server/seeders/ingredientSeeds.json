@@ -78,6 +78,86 @@
       "fats": 0,
       "carbs": 27,
       "sodium": 3
+    },
+    {
+      "name": "Pecans",
+      "calories": 196,
+      "protein": 3,
+      "fats": 20,
+      "carbs": 4,
+      "sodium": 0
+    },
+    {
+      "name": "Hazelnuts",
+      "calories": 176,
+      "protein": 4,
+      "fats": 17,
+      "carbs": 5,
+      "sodium": 0
+    },
+    {
+      "name": "Brazil Nuts",
+      "calories": 186,
+      "protein": 4,
+      "fats": 19,
+      "carbs": 3,
+      "sodium": 1
+    },
+    {
+      "name": "Pistachios",
+      "calories": 156,
+      "protein": 6,
+      "fats": 13,
+      "carbs": 8,
+      "sodium": 0
+    },
+    {
+      "name": "Dried Apricots",
+      "calories": 78,
+      "protein": 1,
+      "fats": 0,
+      "carbs": 19,
+      "sodium": 1
+    },
+    {
+      "name": "Dark Chocolate-covered Almonds",
+      "calories": 160,
+      "protein": 4,
+      "fats": 11,
+      "carbs": 13,
+      "sodium": 0
+    },
+    {
+      "name": "Chia Seeds",
+      "calories": 138,
+      "protein": 5,
+      "fats": 9,
+      "carbs": 12,
+      "sodium": 5
+    },
+    {
+      "name": "Flaxseeds",
+      "calories": 150,
+      "protein": 6,
+      "fats": 12,
+      "carbs": 8,
+      "sodium": 6
+    },
+    {
+      "name": "Dried Blueberries",
+      "calories": 84,
+      "protein": 1,
+      "fats": 0,
+      "carbs": 21,
+      "sodium": 1
+    },
+    {
+      "name": "Roasted Chickpeas",
+      "calories": 46,
+      "protein": 2,
+      "fats": 1,
+      "carbs": 8,
+      "sodium": 46
     }
   ]
   

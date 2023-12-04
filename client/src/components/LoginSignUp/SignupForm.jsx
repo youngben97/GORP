@@ -78,6 +78,7 @@ return (
                             id="username"
                             label="Username"
                             autoFocus
+                            sx={{bgcolor: 'background.default'}}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -89,6 +90,7 @@ return (
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        sx={{bgcolor: 'background.default'}}
                         onChange={handleChange}
                         />
                     </Grid>
@@ -101,6 +103,7 @@ return (
                         type="password"
                         id="password"
                         autoComplete="new-password"
+                        sx={{bgcolor: 'background.default'}}
                         onChange={handleChange}
                     />
                     </Grid>

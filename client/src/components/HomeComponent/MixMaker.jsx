@@ -68,7 +68,7 @@ export default function MixMaker() {
     //"login to save your mix" if user is not logged in
 
     return (
-        <Stack sx={{ direction: 'column', alignItems: 'center', justifyContent: 'center', my: 2}}>
+        <Stack sx={{ direction: 'column', alignItems: 'center', justifyContent: 'center', m: 2, bgcolor: 'error.main', p:2, borderRadius: 1, border:2, borderColor: 'background.default' }}>
             <TextField
                   id='mix-name-input'
                   label='Mix Name'
@@ -97,6 +97,7 @@ export default function MixMaker() {
                     checkedIcon={checkedIcon}
                     style={{ marginRight: 8 }}
                     checked={selected}
+                    
                     />
                     {option.name}
                 </li>
@@ -115,7 +116,7 @@ export default function MixMaker() {
                   />
             )}
             />
-            <Button variant='contained' sx={{ m: 2}} onClick={handleFormSubmit}>Save Mix</Button>
+            <Button variant='contained' sx={{ m: 1 }} onClick={handleFormSubmit}>Save Mix</Button>
         </Stack>
     );
 }

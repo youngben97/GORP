@@ -77,6 +77,7 @@ const Login = (props) => {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    sx={{bgcolor: 'background.default'}}
                     onChange={handleChange}
                     />
                 <TextField
@@ -88,6 +89,7 @@ const Login = (props) => {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    sx={{bgcolor: 'background.default'}}
                     onChange={handleChange}
                 />
                 <Button

@@ -34,13 +34,13 @@ export default function CommunityMixes() {
 
   return (
     <Stack sx={{ alignItems: 'center', justifyContent: 'center', p:1}}>
-      <Typography variant='h4' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1}}>Community Mixes</Typography>
+      <Typography variant='h4' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1, border:2, borderColor: 'background.default' }}>Community Mixes</Typography>
       {communityMix?.map((mix, index) => 
-        <Box key={mix._id} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'space-between', bgcolor: 'background.default', p: 1, m:1, borderRadius: 1, width: '100%' }}>
-          <Button variant='outlined' sx={{ color: 'error.light'}} onClick={() => handleButtonClick(mix._id)}>
+        <Box key={mix._id} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'space-between', bgcolor: 'error.main', p: 1, m:1, borderRadius: 1, width: '100%', border:2, borderColor: 'background.default'  }}>
+          <Button variant='contained' sx={{ bgcolor:'background.default', color: 'error.light'}} onClick={() => handleButtonClick(mix._id)}>
             {mix.mixName}
           </Button>
-          <Typography variant='subtitle' sx={{ color: 'text.secondary'}}> Created by: {mix.mixCreator}</Typography>
+          <Typography variant='subtitle' sx={{ color: 'background.default'}}> Created by: {mix.mixCreator}</Typography>
         </Box>
       )}
     </Stack>
