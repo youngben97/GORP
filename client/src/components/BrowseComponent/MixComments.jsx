@@ -65,7 +65,7 @@ export default function MixComments() {
         <>
           <Typography variant='h5' sx={{bgcolor: 'primary.main', color: 'background.default', width: '100%', borderRadius:1, textAlign:'center', m:1, p:1, border:2, borderColor: 'background.default'}}>Comments</Typography>
             {currentMixDetails.comments.map((comment) => (
-              <Box key={comment._id}>
+              <Box key={comment._id} sx={{textAlign: 'center', border: 2, borderColor: 'background.default', borderRadius: 1, mb: 1, mx: 2}}>
                 <Typography variant='subtitle1'>{comment.commentAuthor}</Typography>
                 <Typography variant='subtitle1'>{comment.commentText}</Typography>
                 <Typography variant='caption'>Posted on {comment.createdAt}</Typography>

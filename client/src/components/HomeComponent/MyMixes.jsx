@@ -172,7 +172,7 @@ export default function MyMixes() {
                           onClick={() => handleRemoveComment(mix._id, comment._id)}
                           sx={{backgroundColor: 'primary.main', width: '10px', height: '20px', marginInlineStart: '20px'}}
                         >
-                          <DeleteIcon/>
+                          <DeleteIcon sx={{color: 'background.default'}}/>
                         </Button>
                       </Box>
                     ))}
