@@ -125,7 +125,7 @@ export default function MyMixes() {
           <Typography variant='h5' sx={{ bgcolor: 'primary.main', color: 'background.default', p:1, textAlign: 'center', borderRadius: 1, width: '100%'}}>{user.username}'s Mixes</Typography>
         )}
         {user?.mixes.map((mix, index) => (
-          <Box key={mix._id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'space-between', bgcolor: 'background.default', p: 1, m:1, borderRadius: 1, width: '100%' }}>
+          <Box key={mix._id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'space-between', bgcolor: 'background.default', p: 1, m: 1, borderRadius: 1, width: '100%' }}>
             <Button
               variant='outlined'
               onClick={() => handleOpen(index)}
@@ -140,11 +140,11 @@ export default function MyMixes() {
               >
                 <Stack sx={style}>
                   <Box sx={{bgcolor: 'background.paper', width: '105%', borderRadius: 1}}>
-                    <Box sx={{bgcolor: 'primary.main', width: '95%', margin: '8px auto', borderRadius: 1}}>
-                  <Typography variant='h4' sx={{color: 'background.default', textAlign: 'center'}}>{mix.mixName}</Typography>
+                    <Box sx={{bgcolor: 'primary.main', width: '95%', margin: '8px auto', borderRadius: 1, paddingBottom: 1}}>
+                  <Typography variant='h4' sx={{color: 'background.default', textAlign: 'center', fontSize: '3rem', fontWeight: 'bold'}}>{mix.mixName}</Typography>
                   {mixData && mixData.getMix && (
                     <>
-                      <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Ingredients</Typography>
+                      <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center', fontWeight: 'bold', textDecoration: 'underline'}}>Ingredients</Typography>
                         <Typography variant='subtitle1' sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         {mixData.getMix.ingredients.map((ingredient) => (
                           <Typography variant='subtitle1' key={ingredient.id} sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'background.default'}}>
@@ -152,11 +152,13 @@ export default function MyMixes() {
                           </Typography>
                           ))}
                         </Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
-                      <Typography variant='subtitle1' sx={{color: 'background.default', textAlign: 'center'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
+                        <Box sx={{bgcolor: 'background.default', width: '80%', margin: 'auto', borderRadius: 1}}>
+                      <Typography variant='subtitle1' sx={{color: 'background.paper', textAlign: 'center'}}>Total Calories: {mixData.getMix.totalCalories}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.paper', textAlign: 'center'}}>Total Protein: {mixData.getMix.totalProtein}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.paper', textAlign: 'center'}}>Total Fats: {mixData.getMix.totalFats}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.paper', textAlign: 'center'}}>Total Carbs: {mixData.getMix.totalCarbs}</Typography>
+                      <Typography variant='subtitle1' sx={{color: 'background.paper', textAlign: 'center'}}>Total Sodium: {mixData.getMix.totalSodium}</Typography>
+                    </Box>
                     </>
                   )}
                   </Box>
@@ -211,7 +213,7 @@ export default function MyMixes() {
                     sx={{
                       display: 'block',
                       margin: 'auto',
-                      mt: 1,
+                      mb: 1,
                     }}
                     >
                     Delete Mix
