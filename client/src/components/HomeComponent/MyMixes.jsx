@@ -117,7 +117,7 @@ export default function MyMixes() {
 
   const user = data?.me;
 
-  if (!user) return <Typography variant='body1' sx={{ bgcolor: 'background.default', color: 'text.secondary', m:1, p:1, textAlign: 'center', borderRadius: 1}}>Login or sign up to view your mixes.</Typography>;
+  if (!user) return <Typography variant='body1' sx={{ bgcolor: 'primary.main', color: 'background.default', m:1, p:1, textAlign: 'center', borderRadius: 1, border:2, borderColor: 'background.default'}}>Login or sign up to view your mixes.</Typography>;
 
     return (
       <Stack sx={{direction: 'column', alignItems: 'center', justifyContent: 'center', p:1}}>
@@ -164,7 +164,7 @@ export default function MyMixes() {
                   </Box>
                   <Typography variant='h5' sx={{color: 'background.default', textAlign: 'center'}}>Comments</Typography>
                     {comments.map(comment => (
-                      <Box key={comment.commentId} sx={{textAlign: 'center', border: 2, borderColor: 'background.default', borderRadius: 1, mb: 1, mx: 2}}>
+                      <Box key={comment.commentId} sx={{textAlign: 'center', border: 2, borderColor: 'primary.main', borderRadius: 1, mb: 1, mx: 2, bgcolor: 'background.default'}}>
                         <Typography variant='body1'>{comment.commentAuthor}: {comment.commentText}</Typography>
                         <Typography variant='caption'>Created at: {comment.createdAt}</Typography>
                         <Button
@@ -200,6 +200,7 @@ export default function MyMixes() {
                       variant="outlined"
                       value={commentText}
                       onChange={(e) => setCommentText(e.target.value)}
+                      sx={{bgcolor: 'background.default', borderRadius: 1, border:2, borderColor: 'background.default'}}
                       />
                     <Button
                       type="submit"

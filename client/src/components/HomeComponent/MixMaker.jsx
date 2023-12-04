@@ -78,7 +78,7 @@ export default function MixMaker() {
                   sx={{
                         color: 'text.primary',
                         bgcolor: 'background.default',
-                        borderRadius: 1
+                        borderRadius: 1, border:2, borderColor: 'background.default'
                   }}
             />
             <Autocomplete
@@ -102,7 +102,7 @@ export default function MixMaker() {
                     {option.name}
                 </li>
             )}
-            sx={{ width: '80%', m:2, bgcolor: 'background.default'}}
+            sx={{ width: '80%', m:2, bgcolor: 'background.default', borderRadius: 1, border:2, borderColor: 'background.default'}}
             renderInput={(params) => (
                 <TextField
                   {...params}
