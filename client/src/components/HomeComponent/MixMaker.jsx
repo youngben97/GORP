@@ -75,6 +75,7 @@ export default function MixMaker() {
                   variant='outlined'
                   value={mixName}
                   onChange={(e) => setMixName(e.target.value)}
+                  autoComplete='off'
                   sx={{
                         color: 'text.primary',
                         bgcolor: 'background.default',
